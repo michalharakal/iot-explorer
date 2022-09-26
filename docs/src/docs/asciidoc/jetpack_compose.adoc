@@ -1,0 +1,38 @@
+= Moderne reaktive UI mit Jetpack Compose
+
+
+[.note]
+---
+wichtiges unterschied zwischen jetpack compose und Jetpack Compose UI
+---
+
+*Jetpack compose* is eine schlüßel
+
+Z
+VonJetpack ist eine Suite von Bibliotheken, die Entwicklern helfen sollen, Best Practices zu befolgen, Boilerplate-Code zu reduzieren und Code zu schreiben, der konsistent auf Android-Versionen und -Geräten funktioniert, damit sich Entwickler auf den Code konzentrieren können, der ihnen wichtig ist.
+
+Google beschreibt Jetpack Compose
+
+== Jetpack Compose
+
+
+
+jetpack compose ist a general purpose tool for building manging and reacting to the state changes. Producing a tree of objects deriving from the state
+
+* small runtime
+* can be used on anything
+* no dependency on UI
+
+
+== Jetpack Compose ist nicht nur UI
+
+Ein wichtiger Teil des Jetpack Composes ist das core
+
+== Jetpack Compose UI
+important distinction: Jetpack Compose is a UI toolkit, not a UI framework. It is not a replacement for Android UI frameworks like AndroidX, Material Design, ConstraintLayout, etc. It is a toolkit for building UIs in a declarative way, using the same language that you use to build your app logic.
+Started on Android, adapted to Web Desktop and iOS.
+
+== Jepack COmpose is nicht nur UI
+Jepack COmpose UI samt Jetpack Compose wurde und ist maßgeblich von Google für Android entwickelt. Das aber de nichgt UI teil keine Dependecies auf Platform und UI hat ...
+
+== Jetpack Desktop

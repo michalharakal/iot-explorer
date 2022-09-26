@@ -1,0 +1,9 @@
+= Kotlin
+
+In diesem Konstrukt spiel Kotlin ein Haupt role:
+* coroutines, flow, suspend functions
+* Kotlin compiler plugin für Jetpack Compose
+* Kotlin Multiplatform
+* Kotlin Native
+* JVM interop
+

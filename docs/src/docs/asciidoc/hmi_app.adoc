@@ -1,0 +1,35 @@
+= HMI App
+
+== PLC Explorer
+
+Um die Konzepte und Ideen wie man eine moderne Bedienoberfläche bauen könnte, implementieren wir als ein Konzept eine App, die man zum Entdecken und Untersuchen von Geräten mit einer unterstützung von ausgewählte Menge von industrielen Protokkolen nutzen kann. Die PLC Explorer is Machbarkeit Studie, ein einfacher Browser, mit der man über einfacher industriellen Protokollen mit Steuerungsprogrammierbare Steuerungen, SPS(in English PLC) Struktur den Geräten und die Werte darstellt und eventuell verändern kann. Die Geräte können Maschinen, industriele Anlagen oder auch ein inteligentes Haus sein.
+
+== Eigenschaften
+
+* Werte organisiert in Bäumen
+* Werte haben interne Representation oft anders als die Anzeige
+** Physikalische Einheiten
+** Auszählungen
+* Werte ändern sich, manche oft und schnell, manche nur selten
+* Werte könne in unterschiedliche Teilen der UI unterschiedliche Anzeigeformen haben
+* Asynchrone Kommunikation, manchmal auch sehr langsam
+* bedeutung von Werten, Gruppierung, Datenstrukturen
+
+
+== Anforderungen
+* multiplatform
+*
+
+== Chalenges
+* low level API libs (Modbus, CAN, KNX ...) für unterschieldiche Platformen
+*
+
+
+
+== Der User ist der König
+
+Bei der Entwicklung fangen wir mit der Bedienoberfläche. Und konzetrieren uns an 2 haupt uses cases:
+* Anzeige der Struktur von Geräten
+* Anzeige der Werte
+
+

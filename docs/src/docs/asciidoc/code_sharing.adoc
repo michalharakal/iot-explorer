@@ -1,0 +1,4 @@
+= Geteilte Freude ist doppelte Freude
+
+Code sharing ist die Antwort auf unterschieldiche Lösungen und multiplatform Anwendungen zu schreiben.
+Im gegenteil zu dem Ansatz alle Anwendungen in einer Sprache zu schreiben, ist es sinnvoll die Anwendungen in der Sprache zu schreiben, die am besten zu der Aufgabe passt.

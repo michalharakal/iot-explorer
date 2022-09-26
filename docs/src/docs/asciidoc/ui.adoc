@@ -1,0 +1,13 @@
+= UI
+
+== ViewModel
+* Bases on flows
+* On Android respects confuguation changes
+
+== Dependecy injection
+
+Koin,pametereless constructors
+
+== Data Flow
+
+unidirectional
