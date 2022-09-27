@@ -1,0 +1,13 @@
+:imagesdir: ../images
+
+== Intents
+
+= Architecture
+
+== Modules
+
+* generated picture of gradle modules
+
+== Unidirectional dataflow
+
+image::unidirectional.png[]

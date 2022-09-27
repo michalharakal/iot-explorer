@@ -3,16 +3,18 @@ Firstname Lastname <michal@harakal.de>
 3.0, July 29, 2022: AsciiDoc article template
 :toc:
 
+:imagesdir: images
+
 Mit fortgeschrittener Digitalisierung wachsen Anforderungen auch auf die HMI-Anwendungen in verschiedenen industriellen Bereichen.
 Nicht nur sicher, zuverlässig und schlank, aber auch modern, gut aussehend und vernetzt sollten sie werden.
 Mit einer einfachen Desktop-App, die mit mehrere SPS Protokolle beherrscht, schauen wir uns in diesem Artikel die Stärken von Kotlin und Kotlin Multiplatform, wie man einfach mehrere Plattformen (besonders mit Fokus auf Betriebssysteme von Apple) ohne Kompromissen unterstützen kann, wie wunderbar die Interoperabilität zwischen Kotlin und JVM funktioniert und wie deklarative UI Frameworks, wie Jetpack Compose und Swift UI, die Art und Weise verändern, wie man reaktive Bedienoberfläche heutzutage entwickelt.
 
 Code sharing,
 
-include::hmi_app.adoc[leveloffset=+1]
+include::sections/hmi_app.adoc[leveloffset=+1]
 
-include::jetpack_compose.adoc[leveloffset=+1]
+include::sections/jetpack_compose.adoc[leveloffset=+1]
 
-include::state.adoc[leveloffset=+1]
+include::sections/state.adoc[leveloffset=+1]
 
-include::ui.adoc[leveloffset=+1]
+include::sections/ui.adoc[leveloffset=+1]

@@ -41,9 +41,20 @@ jobs:
       - name: Print execution time
         run: echo "Time ${{ steps.adocbuild.outputs.time }}"
 
-      - name: Deploy docs to branch published article
-        uses: zekth/gh-deploy-action@1.0.0
+      - uses: actions/upload-artifact@master
         with:
-            dir: docs/build/docs/asciidoc
-            gh_token: ${{ secrets.GH_TOKEN }}
-            target_branch: published-docs
+          name: documents
+          path: docs/build/docs/asciidoc
+
+      - name: create file list
+        id: files_list
+        run: |        
+          echo "::set-output name=files::$(printf '"%s" ' docs/src/docs/asciidoc/*.md)"
+        uses: docker://pandoc/asciidoc:2.9
+        with:
+            args: --output=docs/build/docs/asciidoc/markdowns.adoc ${{ steps.files_list.outputs.files }}
+
+      - uses: actions/upload-artifact@master
+        with:
+          name: documents
+          path: docs/build/docs/asciidoc
