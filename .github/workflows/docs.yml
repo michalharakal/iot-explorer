@@ -50,7 +50,8 @@ jobs:
         id: files_list
         run: |        
           echo "::set-output name=files::$(printf '"%s" ' docs/src/docs/asciidoc/*.md)"
-        uses: docker://pandoc/asciidoc:2.9
+
+      - uses: docker://pandoc/asciidoc:2.9
         with:
             args: --output=docs/build/docs/asciidoc/markdowns.adoc ${{ steps.files_list.outputs.files }}
 

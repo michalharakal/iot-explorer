@@ -4,6 +4,8 @@
 
 = Architecture
 
+image::modules.png[]
+
 == Modules
 
 * generated picture of gradle modules
