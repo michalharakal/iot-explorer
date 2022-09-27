@@ -42,8 +42,8 @@ jobs:
         run: echo "Time ${{ steps.adocbuild.outputs.time }}"
 
       - name: Deploy docs to branch published article
-        uses: peaceiris/actions-gh-pages@v3
+        uses: zekth/gh-deploy-action@1.0.0
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_branch: published-docs
-          publish_dir: docs/build/docs/asciidoc
+            dir: docs/build/docs/asciidoc
+            gh_token: ${{ secrets.GH_TOKEN }}
+            target_branch: published-docs
