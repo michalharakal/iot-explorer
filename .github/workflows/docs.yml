@@ -1,0 +1,39 @@
+name: IoT Explorer Docs
+
+on:
+  push:
+    branches:
+      - article
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # enables hardware acceleration in the virtual machine
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Fetch tags
+        run: |
+          git fetch -f --unshallow --tags
+          echo $?
+          git tag --list
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      - name: Declare git commit variables
+        id: vars
+        shell: bash
+        run: |
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      - name: Print git commit variables
+        run: |
+          echo "Branch: ${{ steps.vars.outputs.branch }}"
+          echo "Sha: ${{ steps.vars.outputs.sha_short }}"
+
+      - name: Asciidoctor
+        run: ./gradlew clean asciidoctor
