@@ -6,15 +6,10 @@ see https://johnoreilly.dev/posts/swift-async-algorithms-combine/
 
 Integration einer multplatoform shared code ins MacOS, iOS.
 Abbildung von Paradigmen:
-* async calls
-* UI binding to Swift UI
-
+* async calls * UI binding to Swift UI
 
 == Integration ins development teams
 
-* Kotlin, Swift, Objective C
-* Kotlin lesbar für iOS entwickler
-* paketierung und das Konsumieren von
-
+include::colaboration.adoc[leveloffset=+1]
 
 

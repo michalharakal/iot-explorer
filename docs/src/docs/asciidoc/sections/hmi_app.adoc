@@ -1,35 +1,11 @@
-= HMI App
+= IoT Explorer
 
-== PLC Explorer
+Um die Konzepte und Ideen für eine moderne Bedienoberfläche zu überprüfen, implementieren wir als ein Konzept eine App, die man zum Betrachten und verändern von Werten an angebundenen Geräten nutzen kann. Die Kommunikation mit den Geräten wird über maschinenorientierte Protokolle realisiert. Die Geräte können Maschinen, industrielle Anlagen oder Endverbraucher Geräte sein. Der Kommunikation bring mehrere Herausforderungen und wir schauen uns genauer die Möglichkeiten an, die uns erlauben Bibliotheken, die für das jeweilige Protokoll am besten geeignet sind in die unsere App zu integrieren.
 
-Um die Konzepte und Ideen wie man eine moderne Bedienoberfläche bauen könnte, implementieren wir als ein Konzept eine App, die man zum Entdecken und Untersuchen von Geräten mit einer unterstützung von ausgewählte Menge von industrielen Protokkolen nutzen kann. Die PLC Explorer is Machbarkeit Studie, ein einfacher Browser, mit der man über einfacher industriellen Protokollen mit Steuerungsprogrammierbare Steuerungen, SPS(in English PLC) Struktur den Geräten und die Werte darstellt und eventuell verändern kann. Die Geräte können Maschinen, industriele Anlagen oder auch ein inteligentes Haus sein.
+.Hauptbildschirm
+image::hmi-api.png[]
 
-== Eigenschaften
+Das Bild 1 zeigt den Hauptbildschirm der App. In dem linken Teil, in einer Baumansicht  sind es Geräte nach Protokollen gruppiert. Die dazugehörigen Werte und zugehörige Möglichkeiten sie zu verändern, sind als eine Liste in rechten Teil des Fensters dargestellt. Wichtig ist, dass die Werte im Gerät selber, bei der Übertragung und als der Wert der in der App Anzeige unterschiedliche Representation haben können, ob es sich und die Speicherplatzbelegung oder Bedeutung handelt. Ist 1 oder mehren Bytes, die im Speicher Belegt, bedeutet der Ganzzahlwert eine absolute Helligkeit der Glühbirne oder  prozentualer Anteil oder sind es sogar komplexere Daten Strukturen. Genauso wichtig sind die physikalischen Einheiten und die Formatierung, es könnte sogar möglich sein, dass in den unterschiedlichen Teilen der App der gleiche Wert eine unterschiedliche Darstellung haben kann (zum Beispiel 0 und 1 oder Grafische Darstellung als ein Schalter).
 
-* Werte organisiert in Bäumen
-* Werte haben interne Representation oft anders als die Anzeige
-** Physikalische Einheiten
-** Auszählungen
-* Werte ändern sich, manche oft und schnell, manche nur selten
-* Werte könne in unterschiedliche Teilen der UI unterschiedliche Anzeigeformen haben
-* Asynchrone Kommunikation, manchmal auch sehr langsam
-* bedeutung von Werten, Gruppierung, Datenstrukturen
-
-
-== Anforderungen
-* multiplatform
-*
-
-== Chalenges
-* low level API libs (Modbus, CAN, KNX ...) für unterschieldiche Platformen
-*
-
-
-
-== Der User ist der König
-
-Bei der Entwicklung fangen wir mit der Bedienoberfläche. Und konzetrieren uns an 2 haupt uses cases:
-* Anzeige der Struktur von Geräten
-* Anzeige der Werte
-
-
+Wenn wir über der Implementierung der App weiter nachdenken, sollten wir auch berücksichtigen, wie schnell sich manche Werte verändern und ob sie bei Gerät angefragt werden muss, oder kriegen wir eine Wert veränderung automatisch mit.
+Ein weiters Spezifikum der App ist der Datenfluß, die App is Daten getrieben, der Update von Werten muss, automatisch stattfinden und soll einfach zu implementieren sein.

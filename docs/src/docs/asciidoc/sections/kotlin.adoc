@@ -1,6 +1,14 @@
-= Kotlin
+= Kotlin und Kotlin Mutliplatform
 
-In diesem Konstrukt spiel Kotlin ein Haupt role:
+Warum überhaupt Kotlin. Code sharing ist doch nichts Neues und funktioniert auch mit anderen Programmiersprachen.
+Zuerst ist es Kotlin als die Sprache. Kotlin selber bezeichnet sich als kompakt und präzise, sicher, ausdrucksvoll, vollständig kompatibel und multiplatform. Schon aleine die erste Eigenschaften machen Kotlin gerade für die Java Entwickler interessant. Für die unsere IoT App ist die Multiplatorfmfähigkeite wichtig. Ein wichtigerteil der Kotlin multiplatformfähig macht sind in die Sprache selber integrierte Schlüsselwort *expected/actual* ein fester Bestandteil der Programmiersprache selber.
+
+Weiteres wichtiges Baustein, der das Bauen von reaktiven Apps vereinfacht sind coroutines und Flows. In Generellen läuft die Kommunikation mit den Geräten in Hintergrund. Die Coroutines mit dem Schlüsselwort *suspend* und mit einsatz von dem Programmierparadigma  *Strukturierte Parallelität* ermöglich das Schreiben von elegantem Code.
+
+Eine vollständige kompatibilität zum JVM war und weiterhin bleibt eine von Hauptmerkmalen vom Kotlin und erlaubt  uns auch beim Thema Kotlin Multiplatform die Integration von JVM Bibliotheken. Gerade in Bereich von maschinenorientierte Protokolle ist die Auswahl von qualitativ hochwertigen Bibliotheken gut.Als Beispile kann man die Bibliotheken für die Kommunikation in KNX oder das Apache Projekt PLC4X mit mehreren SPS Protokollen im Portfolio(siehe Projekt Homepage https://plc4x.apache.org/)
+
+
+In diesem Konstrukt spiel Kotlin eine Haupt role
 * coroutines, flow, suspend functions
 * Kotlin compiler plugin für Jetpack Compose
 * Kotlin Multiplatform

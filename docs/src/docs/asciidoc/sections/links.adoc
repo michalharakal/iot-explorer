@@ -4,3 +4,7 @@ https://developer.android.com/jetpack/compose
 jetpack https://developer.android.com/jetpack
 
 https://talkingkotlin.com/%D1%81ompose-in-%D1%81ashApp-with-jake-wharton-and-saket-narayan/
+
+https://kotlinlang.org/#why-kotlin
+
+https://plc4x.apache.org/

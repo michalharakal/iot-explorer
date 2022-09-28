@@ -1,10 +1,8 @@
-= Moderne reaktive UI mit Jetpack Compose
+= Moderne reaktive Bedienoberflächen mit Jetpack Compose
 
+Bei der Enticklung der App haben wir mit der Bedien Oberfläche
 
-[.note]
----
-wichtiges unterschied zwischen jetpack compose und Jetpack Compose UI
----
+ist DSL
 
 *Jetpack compose* is eine schlüßel
 
