@@ -2,11 +2,7 @@
 
 == Technische integration
 
-see https://johnoreilly.dev/posts/swift-async-algorithms-combine/
-
-Integration einer multplatoform shared code ins MacOS, iOS.
-Abbildung von Paradigmen:
-* async calls * UI binding to Swift UI
+include::Kotlin_on_iOS.adoc[leveloffset=+1]
 
 == Integration ins development teams
 
