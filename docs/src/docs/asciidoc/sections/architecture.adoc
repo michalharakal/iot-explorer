@@ -1,13 +1,20 @@
-== Intents
+= Softwarearchitektur
 
-= Architecture
+Die Softwarearchitektur einer App trägt maßgeblich dazu, wie viel von dem in Kotlin geschriebenen Code man wiederverwenden kann. Beim Entwurf einer Softwarearchitektur für ein Kotlin-Multiplatform-Projekt steht neben den üblichen nichtfunktionalen Anforderungen wie Lesbarkeit oder Wartbarkeit nämlich der hohe Grad an Wiederverwendbarkeit von Code im Vordergrund. Eine einmal programmierte Lösung spart nicht nur Aufwand nach dem DRY-Prinzip („Don’t Repeat Yourself“), sondern kann so auch eine höhere Qualität und fachliche Korrektheit durch mehrfaches Anwenden erreichen. Für die IoT Explorer App haben wir uns an eine stark an „Clean Architecture“ von Uncle Bob [6] angelehnt.  Die Tatsache, dass aus Sicht der Clean Architecture die UI Android Frameworks nur am Rande stehen und der Fokus auf Entities und Use Cases in der Domain liegt, macht es einfach, eine Umsetzung unabhängig von der Plattform zu gestalten.
 
-image::modules.png[]
+== Kotlin multiplatform
 
-== Modules
+image::KMP_Architecture.png[]
+
+Das Herzstück ist die CommonLib, die den Teil des Codes beinhaltet, den man auf Android und iOS wiederverwenden kann. Koroutinen und die „kotlinx“-Serialisierung werden zusätzlich zur Kotlin Stan- dard Library benutzt und in Abbildung 1 als ein wichtiger Baustein dargestellt.
+Durch eine weitere Trennung der Implementierung, die sich um die Netzwerkkommunikation kümmert und den Code, der für das Caching und die lokale Datenspeicherung zuständig ist, erzeugen wir zwar einen kleinen Mehraufwand (zum Beispiel bei den notwen- digen ModelMappers), erreichen dafür allerdings die Freiheit, un- terschiedliche Datenklassen für Netzwerk und Speicher zu nutzen. Dies wiederum ermöglicht eine Austauschbarkeit von Kommuni- kationsmodulen für unterschiedliche Konferenz-Backend-Systeme mit unterschiedlichen Datentransfer-Objekten und Endpunkten. Bei größeren Datenmengen kann man die Daten im lokalen Cache, zum Beispiel mit einer SQLite-Multiplattform-Datenbank-Bibliothek wie
+SQLDelight, speichern. In unserem einfachen Fall und bei den Da- tenmengen, die bei einer üblichen Konferenz anfallen, speichern wir direkt die deserialisierten Daten als „String“ in einem einfachen persistenten Key/Value Store. Zum Absetzen von Netzwerk-Auf- rufen hat sich die Multiplatform-Bibliothek „ktor.io“ von JetBrains bewährt, die den Nutzer wählen lässt, welchen „http client“ er auf der Zielplattform benutzen möchte. So kommt bei Android „Okhttp“ zum Einsatz. Zusätzlich bringt „ktor.io“ weitere nette Funktionen (Features) wie JSON-Deserialisierung oder Logging mit.
 
 * generated picture of gradle modules
 
 == Unidirectional dataflow
 
 image::unidirectional_dia.png[]
+
+
+include::gradle.adoc[leveloffset=+1]

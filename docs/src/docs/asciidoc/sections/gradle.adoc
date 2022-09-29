@@ -1,7 +1,11 @@
 = Gradle
 
-
 Gradle ist  weiteres Baustein, der PLC Explorer ermöglicht und es spielt in diesem Projekte seine Stärken aus. Die erste Stärke vom Gradle sind die Gradle Module. Mit Modulen erreichen wir eine physische Trennung zwischen Schicken in der Software Architektur, sodass man gezwungen ist sich an dem Kontrakt der Schickt zu halten und nicht auf die Idee kommt, zum Beispiel in dem Kode für die Bedienoberfläche schnell mal eine Backendabfrage abzufeuern. Mit den Gradle Modulen ist auch das Teilen vom Kode möglich, so es möglich ist der gemeinsame Kode für unterschiedliche Platformen und UI Toolkits zu verwenden.
+
+image::modules.png[]
+
+== Modules
+
 
 == KTS
 
