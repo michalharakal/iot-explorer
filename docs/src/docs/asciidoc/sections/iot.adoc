@@ -7,30 +7,3 @@ Eine Abstraktion können wir analog zu ein Betriebssystem als Treiber definieren
 == Integration in Kotlin Multiplatform
 
 In Kotlin Multiplatform lassen sich Gerätetreiber einschliesslich eines Communications Protocols einfach und schön implementieren. Weil Kotlin und gerade Kotlin Multiplatform noch seinen Weg in die größere Entwickler Community sucht, gibt es davon leider nocht nicht so viele. Hier zeigt aber Kotlin wiederum seine Stärken, zum Beispiel die sehr gute Interoperabilität mit der JVM, so dass man auf bestehende JVM Bibliotheken zugreifen kannm und mit Kotlin Native eine Möglichkeit eine native Implementierung des Protokolls in ein Kotlin Geräte Treiber einzubinden, was gerade für iOS sehr interessant ist.
-
-== Integration in Coroutines/Flows
-
-=== API with callback
-
-Mit suspendCancellableCoroutine
-
-[source, kotlin]
-----
-private suspend fun awaitLoggedIn(): LoginResuk = suspendCancellableCoroutine { continuation ->
-        val callback = object : Callback<Tokens> {
-            override fun onResult(result: Tokens) {
-                // Signed in
-                continuation.resume(LoginToken(result.token)) { cancelationThrowable ->
-
-                }
-            }
-
-            override fun onError(e: java.lang.Exception) {
-                // error
-                continuation.resume(LoginError) {
-                }
-            }
-        }
-        ApiWithClient.getTokens(callback)
-    }
-----

@@ -5,7 +5,7 @@ Firstname Lastname <michal@harakal.de>
 
 :imagesdir: images
 
-Mit fortgeschrittener Digitalisierung wachsen Anforderungen auch auf die HMI(Human machine interface)-Anwendungen in verschiedenen industriellen Bereichen.
+Mit fortgeschrittener Digitalisierung wachsen Anforderungen auch auf die HMI (Human machine interface)-Anwendungen in verschiedenen industriellen Bereichen.
 Nicht nur sicher, zuverlässig und schlank, aber auch modern, gut aussehend und vernetzt sollten sie werden.
 Mit einer einfachen Desktop-App, die mehrere Protokolle beherrscht, schauen wir uns in diesem Artikel die Stärken von Kotlin und Kotlin Multiplatform, wie man einfach mehrere Plattformen Desktop und Mobil (besonders mit Fokus auf Betriebssysteme von Apple) ohne Kompromissen unterstützen kann, wie wunderbar die Interoperabilität zwischen Kotlin und JVM funktioniert und wie deklarative UI Frameworks, wie Jetpack Compose und Swift UI, die Art und Weise verändern, wie man reaktive Bedienoberfläche heutzutage entwickelt.
 
