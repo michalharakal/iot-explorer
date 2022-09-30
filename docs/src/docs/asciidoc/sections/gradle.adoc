@@ -1,10 +1,10 @@
 = Gradle
 
-Gradle ist  weiteres Baustein, die IoT Explorer App in der Form möglicht macht und es spielt in diesem Projekte seine Stärken aus. Die erste Stärke ist möglichkeit die Baukette mit einem eigenen Plugin zu erweitern. Das ist die Stelle, wo der Kotlin Kompiler Plugin Extension für Jetpack Compose in Einsatz kommt.
-Eine weitere Stärke vom Gradle sind die Gradle Module. Mit Modulen erreichen wir eine physische Trennung zwischen Schichten in der Software Architektur, sodass man gezwungen ist sich an dem Kontrakt der Schickt zu halten und nicht auf die Idee kommt, zum Beispiel in dem Kode für die Bedienoberfläche schnell mal eine Backendabfrage abzufeuern. Durch Gradle Module ist das Teilen vom gemeinsamen Kode in der Apps Varianten für die jeweiligen Platformen.
+Gradle ist weiterer Baustein, der die IoT Explorer App in dieser Form möglicht macht und spielt in diesem Projekt seine Stärken aus. Die erste Stärke ist die Möglichkeit, die Baukette mit eigenen Plugins zu erweitern. An dieser Stelle kommt die Kotlin Compiler Plugin Extension für Jetpack Compose zum Einsatz.
+Eine weitere Stärke vom Gradle sind die Gradle Module. Mit Modulen erreichen wir eine physische Trennung zwischen Schichten in der Software Architektur, sodass man gezwungen ist sich an den Kontrakt der Schicht zu halten und nicht auf die Idee kommt, zum Beispiel im Code für das UI schnell mal eine Backendabfrage abzufeuern. Durch Gradle Module ist das auch das Teilen vom gemeinsamen Code für die jeweiligen Platformen möglich.
 
 image::modules.png[]
 
 Auf dem Bild 2(Gradle modules) sind die Kotlin Multiplatform Module farbig hervorgehoben. Mit Linien sind die Abhängigkeiten zwischen dann einzelnen Modulen dargestellt.
 
-Inzwischen unterstützt Gradle auch Kotlin als eine Skriptsprache, so es möglich ist die Konfigurationsskripte in Kotlin zu schreiben, was gerade in den Entwicklungs Umgebungen, die Kotlin unterstützen einen Vorteil bieten. Und seit Android Plugin in der Version 4.0 unterstützt auch Google die Kotlin Sprache als die Skriptsprache  für Gradle und es ist sogar der empfohlene Weg.
+Inzwischen unterstützt Gradle auch Kotlin als eine Skriptsprache, so es möglich ist die Konfigurationsskripte direkt in Kotlin zu schreiben, was gerade in den Entwicklungsumgebungen, die Kotlin unterstützen einen Vorteil ist. Und seit dem Android Plugin in der Version 4.0 unterstützt auch Google Kotlin als die Skriptsprache, für Gradle und es ist sogar der empfohlene Weg.
