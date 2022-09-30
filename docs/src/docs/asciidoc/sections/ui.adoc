@@ -1,28 +1,40 @@
 = UI
 
-== ViewModel
-* Bases on flows
-* On Android respects confuguation changes
+Wie es aus dem Architekturbild ersichtlich ist, Block zuständig für die Bedienoberfläche benannt CommonUI, nutzt gemeinsames Code geschrieben in Kotlin am alle Platformen, die Jetpack Compose in einer von den unterstützten Variante unterstützt. Wir haben als Erstes die IoT Explorer App für Desktop als JVM gebaut und mit dem MacOS X experimentiert.
 
+== ViewModel
+
+ViewModels haben sich erwiesen als eine perfekte Begleitung für reaktive Bedienoberflächen. Das gilt nicht nur für Jetpack Compose aber auch für Swift UI. Als Implementierung haben wir zum Kotlin Multiplatform expect/actual gegriffen. So ist es möglich zum Beispiel für Android eine native Variante zu nutzen, die Application Lifecycle berücksichtigt.
+
+.ViewModel
 [source,kotlin]
 ----
 expect open class CommonViewModel() {
-val clientScope: CoroutineScope
-protected open fun onCleared()
+    val clientScope: CoroutineScope
+    protected open fun onCleared()
 }
 ----
 
 
-== Jetpack Desktop
+.ViewModel on Android
+[source,kotlin]
+----
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineScope
 
+actual open class CommonViewModel actual constructor() : ViewModel() {
+    actual val clientScope: CoroutineScope = viewModelScope
+    actual override fun onCleared() {
+        super.onCleared()
+    }
+}
+----
 
+Es hat sich als eine gute Idee erwiesen, die ViewModels so definieren, dass der Konstruktor sehr wenig oder keine Parameter hat, um eine Möglichkeit zu haben, die ViewModel Objekte auch in den Composable Funktionen zu instanziieren. Dabei hat sich _dependency injection_ als ein gangbarer Weg ergeben, um notwendige Objekte in ViewModels zu referenzieren. Hier können wir den Vorteil nutzen, das Kotlin und Kotlin Multiplatform auch von einer wunderbaren Community lebt und somit könnten wir __Koin__(link X), als ein Kotlin Multiplatform fähiges Framework einsetzen.
 
+== Unidirectional data flow
 
+Reaktive Oberflächen leben davon, das die Daten in der UI nur in einer Richtung einströmen und die Anzeige passt sich anhand der Deklaration durch Recomposition wieder an und die neue UI wird gerendert. Wie könne wir aber die Daten verändern oder wie gehen wir mit Benutzerangaben oder auf UI Ereignisse (Maus und so weiter) um? Wenn wir bei der IoT Explorer App bleiben, ein Zustand eines Gerätes, zum Beispiel einen Schalter aktivieren, um die Rollladen im Smarthome runterzufahren, man muss entsprechendes Kommando über ein Protokoll was Gerät versteht zu schicken. Das ist zu viel, was eine Bedienoberfläche wissen soll. In diesem Fall nutzen wir wieder ein weiters Konzept aus der Clean Architecture benannt UseCase. Die Implementierung dafür lebt wieder in der Domain Schicht, hat keine Ahnung über der Bedien Oberfläche und als ein Bonus, es braucht nur die Object kennen, die mit dem Gerät kommuniziert.
 
-== Dependecy injection
-
-Koin,pametereless constructors
-
-== Data Flow
-
-unidirectional
+image::unidirectional_dia.png[]

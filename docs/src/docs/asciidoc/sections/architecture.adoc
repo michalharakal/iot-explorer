@@ -8,7 +8,3 @@ image::KMP_Architecture.png[]
 
 Das Herzstück ist die CommonLib, die den Teil des Kodes beinhaltet, den man auf unterschiedlichen Platformen benutzt werden kann. Zusätzlich es beinhaltet die tatsächliche aktuelle Implementierung für native Kode Teile, die man nicht mit Kotlin umsetzen kann. Es steht auf soliden Grundlagen der Standard Biblithek mit den Implementirugen für „kotlinx“-Serialisierung und Koroutinen werden zusätzlich zur Kotlin Standard Library mit FLow benutzt und in Abbildung 1 als ein wichtiger Baustein dargestellt.
 Durch eine weitere Trennung der Implementierung, die sich um die Netzwerkkommunikation kümmert und den Code, der für das Caching und die lokale Datenspeicherung zuständig ist, erzeugen wir zwar einen kleinen Mehraufwand (zum Beispiel bei den notwendigen ModelMappers), erreichen dafür allerdings die Freiheit, unterschiedliche Datenklassen für Netzwerk und Speicher zu nutzen. Dies wiederum ermöglicht eine Austauschbarkeit von Kommunikationsmodulen für unterschiedliche Protokolle mit unterschiedlichen Datentransfer-Objekten und Endpunkten.
-
-== Unidirectional dataflow
-
-image::unidirectional_dia.png[]
