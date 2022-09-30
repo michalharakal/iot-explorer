@@ -4,6 +4,21 @@
 * Bases on flows
 * On Android respects confuguation changes
 
+[source,kotlin]
+----
+expect open class CommonViewModel() {
+val clientScope: CoroutineScope
+protected open fun onCleared()
+}
+----
+
+
+== Jetpack Desktop
+
+
+
+
+
 == Dependecy injection
 
 Koin,pametereless constructors

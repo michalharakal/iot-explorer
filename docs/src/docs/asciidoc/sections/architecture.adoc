@@ -6,15 +6,9 @@ Die Softwarearchitektur einer App trägt maßgeblich dazu, wie viel von dem in K
 
 image::KMP_Architecture.png[]
 
-Das Herzstück ist die CommonLib, die den Teil des Codes beinhaltet, den man auf Android und iOS wiederverwenden kann. Koroutinen und die „kotlinx“-Serialisierung werden zusätzlich zur Kotlin Stan- dard Library benutzt und in Abbildung 1 als ein wichtiger Baustein dargestellt.
-Durch eine weitere Trennung der Implementierung, die sich um die Netzwerkkommunikation kümmert und den Code, der für das Caching und die lokale Datenspeicherung zuständig ist, erzeugen wir zwar einen kleinen Mehraufwand (zum Beispiel bei den notwen- digen ModelMappers), erreichen dafür allerdings die Freiheit, un- terschiedliche Datenklassen für Netzwerk und Speicher zu nutzen. Dies wiederum ermöglicht eine Austauschbarkeit von Kommuni- kationsmodulen für unterschiedliche Konferenz-Backend-Systeme mit unterschiedlichen Datentransfer-Objekten und Endpunkten. Bei größeren Datenmengen kann man die Daten im lokalen Cache, zum Beispiel mit einer SQLite-Multiplattform-Datenbank-Bibliothek wie
-SQLDelight, speichern. In unserem einfachen Fall und bei den Da- tenmengen, die bei einer üblichen Konferenz anfallen, speichern wir direkt die deserialisierten Daten als „String“ in einem einfachen persistenten Key/Value Store. Zum Absetzen von Netzwerk-Auf- rufen hat sich die Multiplatform-Bibliothek „ktor.io“ von JetBrains bewährt, die den Nutzer wählen lässt, welchen „http client“ er auf der Zielplattform benutzen möchte. So kommt bei Android „Okhttp“ zum Einsatz. Zusätzlich bringt „ktor.io“ weitere nette Funktionen (Features) wie JSON-Deserialisierung oder Logging mit.
-
-* generated picture of gradle modules
+Das Herzstück ist die CommonLib, die den Teil des Kodes beinhaltet, den man auf unterschiedlichen Platformen benutzt werden kann. Zusätzlich es beinhaltet die tatsächliche aktuelle Implementierung für native Kode Teile, die man nicht mit Kotlin umsetzen kann. Es steht auf soliden Grundlagen der Standard Biblithek mit den Implementirugen für „kotlinx“-Serialisierung und Koroutinen werden zusätzlich zur Kotlin Standard Library mit FLow benutzt und in Abbildung 1 als ein wichtiger Baustein dargestellt.
+Durch eine weitere Trennung der Implementierung, die sich um die Netzwerkkommunikation kümmert und den Code, der für das Caching und die lokale Datenspeicherung zuständig ist, erzeugen wir zwar einen kleinen Mehraufwand (zum Beispiel bei den notwendigen ModelMappers), erreichen dafür allerdings die Freiheit, unterschiedliche Datenklassen für Netzwerk und Speicher zu nutzen. Dies wiederum ermöglicht eine Austauschbarkeit von Kommunikationsmodulen für unterschiedliche Protokolle mit unterschiedlichen Datentransfer-Objekten und Endpunkten.
 
 == Unidirectional dataflow
 
 image::unidirectional_dia.png[]
-
-
-include::gradle.adoc[leveloffset=+1]

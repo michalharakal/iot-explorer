@@ -1,36 +1,66 @@
-= Moderne reaktive Bedienoberflächen mit Jetpack Compose
+= Bedienoberflächen mit Jetpack Compose
 
-Bei der Enticklung der App haben wir mit der Bedien Oberfläche
+*Jetpack compose* is ein Bestandteil von einer Sammlung der Bibliotheken von Google benannt als **Jetpack**, die helfen Best Practices zu befolgen und Boilerplate-Code zu reduzieren.
+Dies ist eigentlich eine nüchterne Beschreibung von Google, in Wirklichkeit ist Jetpack Compose ein completes Paradigmenwechsel, wie man die Bedienoberflächen programmiert, von Imperativen Ansatz über XML zu einem mit Kotlin geschriebenen deklarativen Kode, mit allen Vorteilen, die ein Einsatz einer vollwertigen Programmiersprache bietet.
 
-ist DSL
+Um zu verstehen, warum Jetpack Compose die passende Lösung für unsere IoT Explorer App ist, wir schauen zuerst das Kode-Listing 2.
 
-*Jetpack compose* is eine schlüßel
+.Jetpack Compose DevicesTreeView
+[source,kotlin]
+----
+@Composable
+fun DevicesTreeView(viewModel: DevicesTreeViewModel) = Surface {
+    val viewState by viewModel.state.collectAsState()
+    Box {
+        if (viewState.items.isNotEmpty()) {
+            LazyColumn {
+                items(viewState.items.size) {
+                    DeviceTreeItemView(viewState.items[it])
+                }
+            }
+        }
+    }
+}
+----
 
-Z
-VonJetpack ist eine Suite von Bibliotheken, die Entwicklern helfen sollen, Best Practices zu befolgen, Boilerplate-Code zu reduzieren und Code zu schreiben, der konsistent auf Android-Versionen und -Geräten funktioniert, damit sich Entwickler auf den Code konzentrieren können, der ihnen wichtig ist.
-
-Google beschreibt Jetpack Compose
-
-== Jetpack Compose
-
-
-
-jetpack compose ist a general purpose tool for building manging and reacting to the state changes. Producing a tree of objects deriving from the state
-
-* small runtime
-* can be used on anything
-* no dependency on UI
-
+Als Erstes was unsere Aufmerksamkeit wecken würde, ist die erste Zeile mit der Annotation __Composable__.
+Composable Funktionen sind die Grundbausteine zum Definieren der Bedienoberfläche.
+Die Markierung einer Funktion, oder es kann auch eine Lambdafunktion sein als Composable, weis darauf hin, dass die Funktion/Lambda ist ein Teil der Composition und beschreibt eine Transformation den Daten in eine Baumdatenstruktur.
+Diese ist bei dem UI Framework zum Rendern der Bedienoberfläche benutzt.
+Weiteres was wir bemerken können ist die kompakte Form, die durch Einsatz von Lambda Funktionen und der Unterstützung von Kotlin für type safe Builder, die gerne zum Definieren eigenen DSL Sprache benutzt werden.
+Weitere wichtige Zeile beinhaltet __collectAsState__.
+Damit wird der Flow Liste mit Geräten emittiert und somit strömen Änderungen in dem Datenmodel automatisch in die Oberfläche, was ist mit der Zeile demonstriert ist, wo die Länge von der Liste prüft ist.
 
 == Jetpack Compose ist nicht nur UI
 
-Ein wichtiger Teil des Jetpack Composes ist das core
+Eine wichtige Tatsache bei dem Jetpack Composes ist, dass der Toolkit selber aus zwei Hauptteilen besteht.
+Jetpack Compose und Jetpack Compose UI.
+Der Core hat keine Abhängigkeiten auf Android als Betriebsystem, obwohl die Klassen im Package-name _AndroidX_ leben, weder noch hat es eine Beziehung zur UI.
+Es ist nur zuständig für die Jetpackcompose Runtime und das Verwalten von den Baumdatenstrukturen mit dem State.
+Sa kam die Idee, die Fähigkeiten von Jetpack Compose auf weitere Platrofmen zu übertragen, wobei Jetpack Compose Desktop und Jetpack Compose Web entstanden sind.
+Es existiert auch eine Variante fürs Terminal mit dem Namen Mosaic.
+Und es gibt auch erste Anzeichen, dass man auch auf einer Portierung für iOS arbeitet.
+Jetpack Compose kommt zwar von Google und ist primär auf Android zum Bauen von Bedienoberflächen ausgelegt, aber durch die konsequente Trennung zwischen Core und UI ermöglich eine Umsetzung von einer weiteren pfiffigen Idee.
+Wenn wir uns erinnern, was der Core Teil des Jetpacl Compose macht, das Verwalten vom State einer Baumdatenstruktur und wenn wir uns überlegen, wie man den Zustand eines physikalischen Gerätes am besten abbilden, kommt man wieder zu Baumdatenstrukturen. Eine perfekte Partie. So ist die Bibliothek Molecule (Link X) entstanden, die Kotlin Multiplatform fähig ist. Ein Beispiel, wie könnte ein Composable Presenter aussehen, ist in Listing (y) dargestellt.
+Diese Composable Funktionen können in der Domainschicht unserer Architektur liegen, weil sie keine Abhängigkeiten an UI oder Betriebssystem haben.
 
-== Jetpack Compose UI
-important distinction: Jetpack Compose is a UI toolkit, not a UI framework. It is not a replacement for Android UI frameworks like AndroidX, Material Design, ConstraintLayout, etc. It is a toolkit for building UIs in a declarative way, using the same language that you use to build your app logic.
-Started on Android, adapted to Web Desktop and iOS.
+.Composable
+[source,kotlin]
+----
+sealed interface DeviceModel {
+    object Loading : DeviceModel
+    data class Data(val name: String) : DeviceModel
+}
 
-== Jepack COmpose is nicht nur UI
-Jepack COmpose UI samt Jetpack Compose wurde und ist maßgeblich von Google für Android entwickelt. Das aber de nichgt UI teil keine Dependecies auf Platform und UI hat ...
-
-== Jetpack Desktop
+@Composable
+fun DevicePresenter(
+    deviceFlow: Flow<Device>
+): DeviceModel {
+    val device by deviceFlow.collectAsState(null)
+    return if (device == null) {
+        Loading
+    } else {
+        Data(user.name, balance)
+    }
+}
+----

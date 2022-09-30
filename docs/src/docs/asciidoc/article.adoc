@@ -22,8 +22,6 @@ include::sections/gradle.adoc[leveloffset=+1]
 
 include::sections/jetpack_compose.adoc[leveloffset=+1]
 
-include::sections/state.adoc[leveloffset=+1]
-
 include::sections/ui.adoc[leveloffset=+1]
 
 include::sections/ios.adoc[leveloffset=+1]

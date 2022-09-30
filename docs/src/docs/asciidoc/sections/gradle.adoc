@@ -1,15 +1,10 @@
 = Gradle
 
-Gradle ist  weiteres Baustein, der PLC Explorer ermöglicht und es spielt in diesem Projekte seine Stärken aus. Die erste Stärke vom Gradle sind die Gradle Module. Mit Modulen erreichen wir eine physische Trennung zwischen Schicken in der Software Architektur, sodass man gezwungen ist sich an dem Kontrakt der Schickt zu halten und nicht auf die Idee kommt, zum Beispiel in dem Kode für die Bedienoberfläche schnell mal eine Backendabfrage abzufeuern. Mit den Gradle Modulen ist auch das Teilen vom Kode möglich, so es möglich ist der gemeinsame Kode für unterschiedliche Platformen und UI Toolkits zu verwenden.
+Gradle ist  weiteres Baustein, die IoT Explorer App in der Form möglicht macht und es spielt in diesem Projekte seine Stärken aus. Die erste Stärke ist möglichkeit die Baukette mit einem eigenen Plugin zu erweitern. Das ist die Stelle, wo der Kotlin Kompiler Plugin Extension für Jetpack Compose in Einsatz kommt.
+Eine weitere Stärke vom Gradle sind die Gradle Module. Mit Modulen erreichen wir eine physische Trennung zwischen Schichten in der Software Architektur, sodass man gezwungen ist sich an dem Kontrakt der Schickt zu halten und nicht auf die Idee kommt, zum Beispiel in dem Kode für die Bedienoberfläche schnell mal eine Backendabfrage abzufeuern. Durch Gradle Module ist das Teilen vom gemeinsamen Kode in der Apps Varianten für die jeweiligen Platformen.
 
 image::modules.png[]
 
-== Modules
+Auf dem Bild 2(Gradle modules) sind die Kotlin Multiplatform Module farbig hervorgehoben. Mit Linien sind die Abhängigkeiten zwischen dann einzelnen Modulen dargestellt.
 
-
-== KTS
-
-Inzwischen ist es möglich gradle Skripte in Kotlin zum Programmieren
-
-== Gradle custom plugins
-Kotlin Plugin Extension
+Inzwischen unterstützt Gradle auch Kotlin als eine Skriptsprache, so es möglich ist die Konfigurationsskripte in Kotlin zu schreiben, was gerade in den Entwicklungs Umgebungen, die Kotlin unterstützen einen Vorteil bieten. Und seit Android Plugin in der Version 4.0 unterstützt auch Google die Kotlin Sprache als die Skriptsprache  für Gradle und es ist sogar der empfohlene Weg.
