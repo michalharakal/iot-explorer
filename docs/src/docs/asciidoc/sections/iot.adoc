@@ -1,12 +1,12 @@
 = IoT
 
-IoT ist ein sehr breiter Begriff und beinhalten nicht nur unterschiedliche Geräte Typen und Fähigkeit, die sie verfügen, aber auch eine Menge von Protokollen, die sie sprechen. Plc-Explorer benötigt nur eine kleine Untermenge den Merkmalen, die die Geräte und Protokolle anbieten, damit ist die Vielfälligkeit mit relative einfache Abstraktion zu lösen. Die Geräte sind in Bäumen organisiert und deren Eigenschaften wie die Werte oder Einstellungen sind als Knoten untergeordnet. Manche Protokolle wie z.B. KNX unterstützen ein Discovery Mechanismus, der ermöglicht die Geräte im Netzwerk zu entdecken, bei manchen muss die Geräte selber anlegen und entsprechen Eigenschaften wie Netzwerk Addressed und Belegung selber zu definieren.
+Das Internet of Things (IoT) ist ein sehr breiter Begriff und beinhaltet nicht nur unterschiedliche Gerätetypen und Fähigkeiten, über die sie verfügen, sondern auch eine große Menge von Protokollen, die sie sprechen. Plc-Explorer benötigt nur eine kleine Untermenge dieser Merkmale, damit ist die Vielfälligkeit mit relativ einfachen Abstraktionen zu lösen. Die Geräte sind in Bäumen organisiert und deren Eigenschaften wie Werte oder Einstellungen sind als Knoten untergeordnet. Manche Protokolle wie z.B. KNX unterstützen einen Discovery Mechanismus, der ermöglicht die Geräte im Netzwerk zu entdecken. Bei anderen müssen die Geräte selber manuelle angebunden werden.
 
-Eine Abstraktion können wir analog zu ein Betriebssystem als ein Treiber zu definieren.
+Eine Abstraktion können wir analog zu ein Betriebssystem als Treiber definieren.
 
 == Integration in Kotlin Multiplatform
 
-Die einfachste und natürlich auch die schönste Variante um ein Geräte driver samt Communications Protocol zu integrieren ist ein in Kotlin Multiplatform geschrieben Implementieren. Dadurch dass Kotlin und gerade Kotlin Multiplatform noch sein Weg in die Breite Entwickler Community noch sucht, gibt es davon nicht viel. Hier zeig aber Kotlin wiederum seine Stärken, die sher gute Interoperabilität mit JVM, so man auf bestehende JVM Bibliotheken zugreifen kann und mit Kotlin Native eine möglichkeit, gerade beim iOS sehr interessant, eine native Implementierung des Protokolls in ein Kotlin Geräte Treiber einzubinden.
+In Kotlin Multiplatform lassen sich Gerätetreiber einschliesslich eines Communications Protocols einfach und schön implementieren. Weil Kotlin und gerade Kotlin Multiplatform noch seinen Weg in die größere Entwickler Community sucht, gibt es davon leider nocht nicht so viele. Hier zeigt aber Kotlin wiederum seine Stärken, zum Beispiel die sehr gute Interoperabilität mit der JVM, so dass man auf bestehende JVM Bibliotheken zugreifen kannm und mit Kotlin Native eine Möglichkeit eine native Implementierung des Protokolls in ein Kotlin Geräte Treiber einzubinden, was gerade für iOS sehr interessant ist.
 
 == Integration in Coroutines/Flows
 
