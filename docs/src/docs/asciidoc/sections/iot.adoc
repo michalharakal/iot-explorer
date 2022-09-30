@@ -1,6 +1,6 @@
 = IoT
 
-Das Internet of Things (IoT) ist ein sehr breiter Begriff und beinhaltet nicht nur unterschiedliche Gerätetypen und Fähigkeiten, über die sie verfügen, sondern auch eine große Menge von Protokollen, die sie sprechen. Plc-Explorer benötigt nur eine kleine Untermenge dieser Merkmale, damit ist die Vielfälligkeit mit relativ einfachen Abstraktionen zu lösen. Die Geräte sind in Bäumen organisiert und deren Eigenschaften wie Werte oder Einstellungen sind als Knoten untergeordnet. Manche Protokolle wie z.B. KNX unterstützen einen Discovery Mechanismus, der ermöglicht die Geräte im Netzwerk zu entdecken. Bei anderen müssen die Geräte selber manuelle angebunden werden.
+Das Internet of Things (IoT) ist ein sehr breiter Begriff und beinhaltet nicht nur unterschiedliche Gerätetypen und Fähigkeiten, über die sie verfügen, sondern auch eine große Menge von Protokollen, die sie sprechen. IoT Explorer App benötigt nur eine kleine Untermenge dieser Merkmale, damit ist die Vielfälligkeit mit relativ einfachen Abstraktionen zu lösen. Die Geräte sind in Bäumen organisiert und deren Eigenschaften wie Werte oder Einstellungen sind als Knoten untergeordnet. Manche Protokolle wie z.B. KNX unterstützen einen Discovery Mechanismus, der ermöglicht die Geräte im Netzwerk zu entdecken. Bei anderen müssen die Geräte selber manuelle angebunden werden.
 
 Eine Abstraktion können wir analog zu ein Betriebssystem als Treiber definieren.
 

@@ -1,9 +1,14 @@
 = Responsive Multiplatform HMI-Anwendungen mit Kotlin Multiplatform und Jetpack Compose
-Firstname Lastname <michal@harakal.de>
-3.0, July 29, 2022: AsciiDoc article template
+Michal Harakal <harakal <michal@harakal.de>
+Alexander von Below <alex@vonbelow.com>
+3.0, July 29, 2022:
+
 :toc:
 
 :imagesdir: images
+
+Michal Harakal, Alexander von Below
+
 
 Mit fortgeschrittener Digitalisierung wachsen Anforderungen auch auf die HMI (Human machine interface)-Anwendungen in verschiedenen industriellen Bereichen.
 Nicht nur sicher, zuverlässig und schlank, aber auch modern, gut aussehend und vernetzt sollten sie werden.

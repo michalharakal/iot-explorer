@@ -1,6 +1,6 @@
 = Bedienoberflächen mit Jetpack Compose
 
-*Jetpack compose* ist ein Bestandteil der von Google als **Jetpack** bezeichneten Bibliotheken, die helfen sollen, Best Practices zu befolgen und Boilerplate-Code zu reduzieren.
+*Jetpack compose* <LINK 2> ist ein Bestandteil der von Google als **Jetpack** <LINK 1> bezeichneten Bibliotheken, die helfen sollen, Best Practices zu befolgen und Boilerplate-Code zu reduzieren.
 Dies ist eigentlich eine nüchterne Beschreibung von Google, in Wirklichkeit ist Jetpack Compose ein vollständiger Paradigmenwechsel, wie Bedienoberflächen programmiert werden, weg vom Imperativen Ansatz über XML zu einem mit Kotlin geschriebenen deklarativen Code, mit allen Vorteilen, die ein Einsatz einer vollwertigen Programmiersprache bietet.
 
 Um zu verstehen, warum Jetpack Compose die passende Lösung für unsere IoT Explorer App ist, wir schauen zuerst das Code-Listing 2.
@@ -37,10 +37,10 @@ Der Core hat keine Abhängigkeiten zu Android als Betriebsystem (obwohl die Klas
 Daraus endstand auch die Idee, die Fähigkeiten von Jetpack Compose auf weitere Platrofmen zu übertragen, wodurch Jetpack Compose Desktop und Jetpack Compose Web entstanden sind.
 Es existiert auch eine Variante für das Terminal mit dem Namen Mosaic, und es gibt auch erste Anzeichen, dass auch eine Portierung für iOS kommen könnte.
 Jetpack Compose kommt zwar von Google und ist primär zum Bauen von Bedienoberflächen auf Android ausgelegt, aber durch die konsequente Trennung zwischen Core und UI ermöglich es die Umsetzung einer weiteren, pfiffigen Idee.
-Wenn wir uns erinnern, was der Core Teil des Jetpack Compose macht, also das Verwalten vom State einer Baumdatenstruktur, und wenn wir uns überlegen, wie man den Zustand eines physikalischen Gerätes am besten abbilden kann, kommt man wieder zu Baumdatenstrukturen. So ist die Bibliothek Molecule (Link X) entstanden, die Kotlin Multiplatform-fähig ist. Ein Beispiel, wie ein Composable Presenter aussehen könnte, ist in Listing (y) dargestellt.
+Wenn wir uns erinnern, was der Core Teil des Jetpack Compose macht, also das Verwalten vom State einer Baumdatenstruktur, und wenn wir uns überlegen, wie man den Zustand eines physikalischen Gerätes am besten abbilden kann, kommt man wieder zu Baumdatenstrukturen. So ist die Bibliothek Molecule <LINK 7> entstanden, die Kotlin Multiplatform-fähig ist. Ein Beispiel, wie ein Composable Presenter aussehen könnte, ist in Listing <CODE 1> dargestellt.
 Diese Composable Funktionen können in der Domainschicht unserer Architektur liegen, weil sie keine Abhängigkeiten an UI oder Betriebssystem haben.
 
-.Composable
+.CODE 1 Composable
 [source,kotlin]
 ----
 sealed interface DeviceModel {
