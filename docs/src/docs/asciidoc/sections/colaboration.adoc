@@ -6,9 +6,9 @@ Nicht selten wird ein Projekt ausschliesslich mit zum Beispiel
 JavaScript oder Dart Expert:innen besetzt, in der Hoffnung, dass diese
 die gesamte Entwicklung bis hin zum Deployment übernehmen können. Das
 mag bei einfachen Anwendungen funktionieren; viele Projekte stellen sehr
-schnell fest, dass es ohne genaue Kenntnisse der Platform nicht
+schnell fest, dass es ohne genaue Kenntnisse der Plattform nicht
 funktioniert. Alle Cross Platform Tools sind auf Plugins zur nativen
-Platform angewiesen, wenn sie etwas spannendere Dinge tun möchten — zum
+Plattform angewiesen, wenn sie etwas spannendere Dinge tun möchten — zum
 Beispiel per Bluetooth kommunizieren oder Passwörter sicher abspeichern.
 Wenn es dann ein Problem mit diesen Plugins gibt, egal ob durch die
 Verwendung, neue SDKs oder neue Toolchains, ist genaues Wissen über das
@@ -16,7 +16,7 @@ Zielsystem und die verwendeten Programmiersprachen unerlässlich.
 Insgesamt können OS Updates, neue SDKs und Werkzeuge immer für
 Überraschungen sorgen. Und auch beim Deployment in AppCenter,
 TestFlight, Google Play oder den AppStore kann es Feinheiten geben, für
-die es spezialisiertes Wissen braucht. Wie löst Kotlin Multiplattform
+die es ein spezialisiertes Wissen braucht. Wie löst Kotlin Multiplattform
 dieses Problem? Nicht durch Technik, jedenfalls nicht durch neue
 Technik: KMP setzt konsequent auf Tools, die Android und iOS
 Entwickler:innen absolut geläufig sind: Die IDEs Android Studio, Xcode
