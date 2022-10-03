@@ -1,1 +1,6 @@
+:experimental:
+:toc: left
+:toc:
+:docinfodir: {asciidoctorconfigdir}/docinfo
+:docinfo: shared
 :imagesdir: ../images

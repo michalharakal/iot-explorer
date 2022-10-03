@@ -15,6 +15,8 @@ dependencies {
 
 
 tasks.withType<org.asciidoctor.gradle.jvm.AsciidoctorTask> {
+    baseDirFollowsSourceDir()
+
     //sourceDir.s = file("docs")
     /*
     sources(delegateClosureOf<PatternSet> {

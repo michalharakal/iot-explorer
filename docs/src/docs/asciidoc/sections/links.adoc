@@ -1,25 +1,14 @@
 = Links
 
 1.Jetpack Compose Projekt https://developer.android.com/jetpack/compose
-
 2. Jetpack Bibliotheken https://developer.android.com/jetpack
-
 3. https://talkingkotlin.com/%D1%81ompose-in-%D1%81ashApp-with-jake-wharton-and-saket-narayan/
-
 4. https://kotlinlang.org/#why-kotlin
-
 5. https://plc4x.apache.org/
-
 6. https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
-
 7. https://github.com/cashapp/molecule
-
 8. https://insert-koin.io/
-
 9. https://github.com/michalharakal/iot-explorer
-
-Logos:
-Kotlin Logo
 
 Java Logo
 Mark Anderson (work for hire for Sun Microsystems) - http://www.logoeps.com/java-eps-vector-logo/40925/
