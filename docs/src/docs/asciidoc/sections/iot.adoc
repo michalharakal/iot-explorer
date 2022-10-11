@@ -1,9 +1,0 @@
-= IoT
-
-Das Internet of Things (IoT) ist ein sehr breiter Begriff und beinhaltet nicht nur unterschiedliche Gerätetypen und Fähigkeiten, über die sie verfügen, sondern auch eine große Menge von Protokollen, die sie sprechen. IoT Explorer App benötigt nur eine kleine Untermenge dieser Merkmale, damit ist die Vielfälligkeit mit relativ einfachen Abstraktionen zu lösen. Die Geräte sind in Bäumen organisiert und deren Eigenschaften wie Werte oder Einstellungen sind als Knoten untergeordnet. Manche Protokolle wie z.B. KNX unterstützen einen Discovery Mechanismus, der ermöglicht die Geräte im Netzwerk zu entdecken. Bei anderen müssen die Geräte selber manuelle angebunden werden.
-
-Eine Abstraktion können wir analog zu ein Betriebssystem als Treiber definieren.
-
-== Integration in Kotlin Multiplatform
-
-In Kotlin Multiplatform lassen sich Gerätetreiber einschliesslich eines Communications Protocols einfach und schön implementieren. Weil Kotlin und gerade Kotlin Multiplatform noch seinen Weg in die größere Entwickler Community sucht, gibt es davon leider nocht nicht so viele. Hier zeigt aber Kotlin wiederum seine Stärken, zum Beispiel die sehr gute Interoperabilität mit der JVM, so dass man auf bestehende JVM Bibliotheken zugreifen kannm und mit Kotlin Native eine Möglichkeit eine native Implementierung des Protokolls in ein Kotlin Geräte Treiber einzubinden, was gerade für iOS sehr interessant ist.
