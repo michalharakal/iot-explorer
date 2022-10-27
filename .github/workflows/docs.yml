@@ -35,25 +35,25 @@ jobs:
           echo "Branch: ${{ steps.vars.outputs.branch }}"
           echo "Sha: ${{ steps.vars.outputs.sha_short }}"
 
-      - name: Asciidoctor
-        run: ./gradlew clean asciidoctor
+      - name: create markdown files list to convert
+        id: files_list
+        run: |
+          echo "::set-output name=files::$(printf '"%s" ' docs/src/docs/asciidoc/*.md)"
 
-      - name: Print execution time
-        run: echo "Time ${{ steps.adocbuild.outputs.time }}"
+      - uses: docker://pandoc/core:2.17
+        with:
+          args: --output=docs/build/docs/asciidoc/markdowns.adoc ${{ steps.files_list.outputs.files }}
 
       - uses: actions/upload-artifact@master
         with:
           name: documents
           path: docs/build/docs/asciidoc
 
-      - name: create file list
-        id: files_list
-        run: |        
-          echo "::set-output name=files::$(printf '"%s" ' docs/src/docs/asciidoc/*.md)"
+      - name: Asciidoctor
+        run: ./gradlew clean asciidoctor
 
-      - uses: docker://pandoc/core:2.17
-        with:
-            args: --output=docs/build/docs/asciidoc/markdowns.adoc ${{ steps.files_list.outputs.files }}
+      - name: Print execution time
+        run: echo "Time ${{ steps.adocbuild.outputs.time }}"
 
       - uses: actions/upload-artifact@master
         with:

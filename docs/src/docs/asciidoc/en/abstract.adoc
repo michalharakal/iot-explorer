@@ -1,0 +1,15 @@
+= Responsive Multiplatform Human-Machine-Interfaces with Kotlin
+Michal Harakal <harakal <michal@harakal.de>
+Alexander von Below <alex@vonbelow.com>
+
+3.0, July 29, 2022:
+
+:toc:
+
+:imagesdir: images
+
+Michal Harakal, Alexander von Below
+
+With advanced digitization, requirements are also growing for HMI (Human Machine Interface) applications in various industrial sectors.
+They should not only be safe, reliable and lean, but also modern, good-looking and connected.
+With a simple desktop app that supports multiple protocols, we will have a  look at the strengths of Kotlin and Kotlin Multiplatform, how to easily support multiple platforms, such as desktop and mobile phones( especially with a focus on Apple operating systems) without compromise, how wonderful interoperability between Kotlin and JVM works, and how declarative UI frameworks like Jetpack Compose and Swift UI are changing the way responsive UI is developed today.
