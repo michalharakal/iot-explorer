@@ -1,0 +1,88 @@
+@startuml
+
+
+class IdIdentity {
+  + IdIdentity(String):
+  + IdIdentity():
+   id: String
+}
+interface Identity<T> << interface >> {
+   id: T
+}
+
+IdIdentity  -[#008200,dashed]-^  Identity
+
+
+class Devices {
+  + Devices(String, IdIdentity, List<Device>):
+   devices: List<Device>
+   category: String
+   protocolId: IdIdentity
+}
+
+
+
+entity Device << data >> {
+  + Device(String):
+   name: String
+   categoryId: IdIdentity
+   groupId: IdIdentity
+}
+
+Device -- IdIdentity:has
+
+
+entity Facilities << data >> {
+  + Facilities(List<Facility>):
+   facilities: List<Facility>
+}
+entity Facility << data >> {
+  + Facility(String, List<Devices>):
+   devices: List<Devices>
+   name: String
+}
+
+entity Protocol << data >> {
+  + Protocol(String, IdIdentity):
+   name: String
+   protocolId: IdIdentity
+}
+
+entity Protocols << data >> {
+  + Protocols(List<Protocol>):
+   protocols: List<Protocol>
+}
+
+entity Categories << data >> {
+  + Categories(List<Category>):
+   categories: List<Category>
+}
+
+entity Category << data >> {
+  + Category(String, IdIdentity):
+   name: String
+   categoryId: IdIdentity
+}
+
+entity Groups << data >> {
+  + Groups(List<Category>):
+  groups: List<Category>
+}
+
+entity Group << data >> {
+  + Group(String, IdIdentity):
+   name: String
+   groupId: IdIdentity
+}
+
+Device .. Category:categoryId
+Device .. Group:groupId
+Devices .. Protocols:protocolId
+
+Devices          "1" *-[#595959,plain]-> "devices\n*"  Device
+Facilities "1" *-[#595959,plain]-> "facilities\n*" Facility
+Facility   "1" *-[#595959,plain]-> "devices\n*" Devices
+Protocols  "1" *-[#595959,plain]-> "protocols\n*"  Protocol
+Categories  "1" *-up[#595959,plain]-> "categories\n*"  Category
+Groups  "1" *-up[#595959,plain]-> "groups\n*"  Group
+@enduml
