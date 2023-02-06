@@ -1,0 +1,9 @@
+= IoT Explorer
+
+:imagesdir: docs/images
+
+image::jvm-app.png[]
+
+== Build and start
+
+   ./gradlew desktop:run
