@@ -8,6 +8,7 @@ pluginManagement {
 
 //include(":android")
 include(":desktop")
+include("compose-ios")
 include(":common")
 include(":common-ui")
 include("communication:connectors:common")

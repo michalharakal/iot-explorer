@@ -2,7 +2,16 @@
 
 :imagesdir: docs/images
 
+== Screenshots
+
+=== JVM Desktop
+
 image::jvm-app.png[]
+
+=== iOS Compose
+
+image::ios-compose.png[]
+
 
 == Build and start
 
