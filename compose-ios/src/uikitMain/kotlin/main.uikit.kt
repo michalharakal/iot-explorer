@@ -5,6 +5,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Application
 import kotlinx.cinterop.*
+import org.plc4x.kmp.ui.presentation.model.LightStatus
+import org.plc4x.kmp.ui.presentation.model.Temperature
+import org.plc4x.kmp.ui.widget.HomeView
+import org.plc4x.kmp.ui.presentation.model.Room
+import org.plc4x.kmp.ui.presentation.model.SwitchStatus
 import platform.UIKit.*
 import platform.Foundation.*
 
@@ -32,14 +37,43 @@ class SkikoAppDelegate : UIResponder, UIApplicationDelegateProtocol {
         _window = window
     }
 
-    override fun application(application: UIApplication, didFinishLaunchingWithOptions: Map<Any?, *>?): Boolean {
+    override fun application(
+        application: UIApplication,
+        didFinishLaunchingWithOptions: Map<Any?, *>?
+    ): Boolean {
 
         window = UIWindow(frame = UIScreen.mainScreen.bounds)
         window!!.rootViewController = Application("IoT Explorer") {
             Column {
                 // To skip upper part of screen.
                 Box(modifier = Modifier.height(48.dp))
-                ListScreen()
+                HomeView(
+                    listOf(
+                        Room(
+                            name = "Küche",
+                            lights = listOf(
+                                LightStatus("Licht 1", SwitchStatus.ON),
+                                LightStatus("Licht 2", SwitchStatus.OFF)
+                            ),
+                            temperature = Temperature("_", "21.0")
+                        ),
+                        Room(
+                            name = "Wohnzimmer",
+                            lights = listOf(
+                                LightStatus("Licht 1", SwitchStatus.ON),
+                                LightStatus("Licht 2", SwitchStatus.OFF)
+                            ),
+                            temperature = Temperature("_", "21.0")
+                        ),
+                        Room(
+                            name = "Schlafzimmer",
+                            lights = listOf(
+                                LightStatus("Licht 1", SwitchStatus.ON),
+                            ),
+                            temperature = Temperature("_", "21.0")
+                        )
+                    )
+                )
             }
         }
         window!!.makeKeyAndVisible()
