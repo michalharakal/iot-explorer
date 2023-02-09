@@ -8,6 +8,7 @@ import androidx.compose.ui.unit.dp
 import org.plc4x.kmp.ui.common.AppTheme
 
 
+@Atom
 @Composable
 fun LedLight(isOn: Boolean) {
     Canvas(modifier = Modifier.size(30.dp)) {

@@ -5,15 +5,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import org.plc4x.kmp.ui.presentation.feature.home.HomeViewModel
-import org.plc4x.kmp.ui.presentation.feature.main.NodeViewModel
 
+@Screen
 @Composable
 fun HomeView(viewModel: HomeViewModel) {
-    val viewState by viewModel.state.collectAsState()
+    val roomsState by viewModel.state.collectAsState()
 
     LazyColumn {
-        items(viewState.rooms.size) { roomIndex ->
-            Room(viewState.rooms[roomIndex])
+        items(roomsState.rooms.size) { roomIndex ->
+            Room(roomsState.rooms[roomIndex])
         }
     }
 }

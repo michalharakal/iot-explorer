@@ -24,7 +24,9 @@ import org.plc4x.kmp.ui.presentation.feature.main.model.DeviceViewTabView
 import org.plc4x.kmp.ui.tool.SplitterState
 import org.plc4x.kmp.ui.tool.VerticalSplittable
 import org.plc4x.kmp.ui.widget.HomeView
+import org.plc4x.kmp.ui.widget.Screen
 
+@Screen
 @Composable
 fun DeviceExplorerView() {
     val panelState = remember { PanelState() }
