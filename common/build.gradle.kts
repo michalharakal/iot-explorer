@@ -1,8 +1,9 @@
-@file:Suppress("UNUSED_VARIABLE")
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import org.jetbrains.compose.ExperimentalComposeLibrary
 
 plugins {
-    kotlin("multiplatform")
-    id("kotlinx-serialization")
+    alias(libs.plugins.kotlinMultiplatform)
+    //  id("kotlinx-serialization")
 }
 
 kotlin {

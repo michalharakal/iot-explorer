@@ -1,6 +1,6 @@
 object Versions {
     const val androidMinSdk = 21
-    const val androidCompileSdk = 33
+    const val androidCompileSdk = 34
     const val androidTargetSdk = androidCompileSdk
 
     const val kotlinCoroutines = "1.6.4"

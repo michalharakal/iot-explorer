@@ -1,8 +1,5 @@
-@file:Suppress("UNUSED_VARIABLE")
-
 plugins {
-    kotlin("multiplatform")
-    id("kotlinx-serialization")
+    alias(libs.plugins.kotlinMultiplatform)
 }
 
 kotlin {

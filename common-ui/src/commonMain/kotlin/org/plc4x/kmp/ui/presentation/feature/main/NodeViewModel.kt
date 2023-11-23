@@ -22,28 +22,28 @@ class NodeViewModel : CommonViewModel(), KoinComponent {
             _houseState.value = House(
                 listOf(
                     Room(
-                        "Küche",
+                        "Kitchen",
                         listOf(
-                            LightStatus("Licht 1", SwitchStatus.ON),
-                            LightStatus("Licht 2", SwitchStatus.OFF)
+                            LightStatus("Light 1", SwitchStatus.ON),
+                            LightStatus("Light 2", SwitchStatus.OFF)
                         ),
                         org.plc4x.kmp.ui.presentation.model.Temperature("Küche", "20.2")
                     ),
                     Room(
-                        "Wohnzimmer",
+                        "Living room",
                         listOf(
-                            LightStatus("Licht 1", SwitchStatus.ON),
-                            LightStatus("Licht 2", SwitchStatus.OFF),
-                            LightStatus("Licht TV", SwitchStatus.ON)
+                            LightStatus("Light 1", SwitchStatus.ON),
+                            LightStatus("Light 2", SwitchStatus.OFF),
+                            LightStatus("Light TV", SwitchStatus.ON)
                         ),
                         org.plc4x.kmp.ui.presentation.model.Temperature("Wohnzimmer", "22")
                     ),
                     Room(
-                        "Schlafzimmer",
+                        "Bedroom",
                         listOf(
-                            LightStatus("Licht", SwitchStatus.ON),
+                            LightStatus("Light", SwitchStatus.ON),
                         ),
-                        org.plc4x.kmp.ui.presentation.model.Temperature("Schlafzimmer", "18")
+                        org.plc4x.kmp.ui.presentation.model.Temperature("Bedroom", "18")
                     )
                 )
             )
