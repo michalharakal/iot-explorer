@@ -12,6 +12,10 @@ import org.plc4x.kmp.ui.presentation.model.SwitchStatus
 
 
 class NodeViewModel : CommonViewModel(), KoinComponent {
+    fun handleCLick(id: String) {
+        TODO("Not yet implemented")
+        TODO("Not yet implemented")
+    }
 
     private val _houseState = MutableStateFlow(House(emptyList()))
     val state: StateFlow<House>
@@ -27,7 +31,7 @@ class NodeViewModel : CommonViewModel(), KoinComponent {
                             LightStatus("Light 1", SwitchStatus.ON),
                             LightStatus("Light 2", SwitchStatus.OFF)
                         ),
-                        org.plc4x.kmp.ui.presentation.model.Temperature("Küche", "20.2")
+                        org.plc4x.kmp.ui.presentation.model.Temperature("Kitchen", "20.2")
                     ),
                     Room(
                         "Living room",
@@ -36,7 +40,7 @@ class NodeViewModel : CommonViewModel(), KoinComponent {
                             LightStatus("Light 2", SwitchStatus.OFF),
                             LightStatus("Light TV", SwitchStatus.ON)
                         ),
-                        org.plc4x.kmp.ui.presentation.model.Temperature("Wohnzimmer", "22")
+                        org.plc4x.kmp.ui.presentation.model.Temperature("Living room", "22")
                     ),
                     Room(
                         "Bedroom",

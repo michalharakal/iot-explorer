@@ -12,7 +12,9 @@ fun NodeView(viewModel: NodeViewModel) {
 
     LazyColumn {
         items(viewState.rooms.size) { roomIndex ->
-            Room(viewState.rooms[roomIndex])
+            Room(viewState.rooms[roomIndex]) {id ->
+                viewModel.handleCLick(id)
+            }
         }
     }
 }

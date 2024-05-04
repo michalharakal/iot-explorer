@@ -16,30 +16,38 @@ import org.plc4x.kmp.ui.presentation.model.SwitchStatus
 
 @Organism
 @Composable
-fun Room(room: Room) {
+fun Room(room: Room, onclickHandler: (String) -> Unit) {
     Column(Modifier.padding(10.dp)) {
         RoomName(room.name)
-        RoomLights(room.lights)
+        RoomLights(room.lights) { id ->
+            onclickHandler(id)
+        }
     }
 }
 
 @Organism
 @Composable
-fun RoomLights(lights: List<LightStatus>) {
+fun RoomLights(lights: List<LightStatus>, onclickHandler: (String) -> Unit) {
     Row {
-        LightsColumn(lights.filterIndexed { index, _ -> index < 2 })
+        LightsColumn(lights.filterIndexed { index, _ -> index < 2 }) { id ->
+            onclickHandler(id)
+        }
         Spacer(modifier = Modifier.width(10.dp))
-        LightsColumn(lights.filterIndexed { index, _ -> index >= 2 })
+        LightsColumn(lights.filterIndexed { index, _ -> index >= 2 }) { id ->
+            onclickHandler(id)
+        }
     }
 }
 
 @Composable
-fun LightsColumn(lights: List<LightStatus>) {
+fun LightsColumn(lights: List<LightStatus>, onclickHandler: (String) -> Unit) {
     Column(Modifier.padding(10.dp)) {
         lights.forEach { light ->
             Row(Modifier.width(300.dp), verticalAlignment = Alignment.CenterVertically) {
                 Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.CenterEnd) {
-                  LightBox(light)
+                    LightBox(light) { id ->
+                        onclickHandler(id)
+                    }
                 }
             }
         }
@@ -48,7 +56,7 @@ fun LightsColumn(lights: List<LightStatus>) {
 
 @Molecule
 @Composable
-fun LightBox(light: LightStatus) {
+fun LightBox(light: LightStatus, onclickHandler: (String) -> Unit) {
     Row {
         Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.CenterStart) {
             Text(light.name)
@@ -56,7 +64,9 @@ fun LightBox(light: LightStatus) {
         Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.CenterStart) {
             LedLight(light.switchStatus == SwitchStatus.ON)
         }
-        OnOffSwitch(light.switchStatus == SwitchStatus.ON)
+        OnOffSwitch(light.name, light.switchStatus == SwitchStatus.ON) { id ->
+            onclickHandler(id)
+        }
     }
 }
 

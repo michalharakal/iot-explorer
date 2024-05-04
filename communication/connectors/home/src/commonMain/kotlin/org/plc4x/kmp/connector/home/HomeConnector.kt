@@ -15,28 +15,28 @@ class HomeConnector : IotConnector<HomeModel> {
     private fun createHome(): List<Room> =
         listOf(
             Room(
-                "Küche",
+                "kitchen",
                 listOf(
-                    LightStatus("Licht 1", SwitchStatus.ON),
-                    LightStatus("Licht 2", SwitchStatus.OFF)
+                    LightStatus("light 1", SwitchStatus.ON),
+                    LightStatus("light 2", SwitchStatus.OFF)
                 ),
-                Temperature("Küche", 20.2f)
+                Temperature("kitchen", 20.2f)
             ),
             Room(
-                "Wohnzimmer",
+                "living room",
                 listOf(
-                    LightStatus("Licht 1", SwitchStatus.ON),
-                    LightStatus("Licht 2", SwitchStatus.OFF),
-                    LightStatus("Licht TV", SwitchStatus.ON)
+                    LightStatus("light 1", SwitchStatus.ON),
+                    LightStatus("light 2", SwitchStatus.OFF),
+                    LightStatus("light TV", SwitchStatus.ON)
                 ),
-                Temperature("Wohnzimmer", 22f)
+                Temperature("living room", 22f)
             ),
             Room(
-                "Schlafzimmer",
+                "bedroom",
                 listOf(
-                    LightStatus("Licht", SwitchStatus.ON),
+                    LightStatus("light", SwitchStatus.ON),
                 ),
-                Temperature("Schlafzimmer", 18f)
+                Temperature("bedroom", 18f)
             )
         )
 

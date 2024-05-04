@@ -6,11 +6,11 @@ import androidx.compose.runtime.Composable
 
 @Atom
 @Composable
-fun OnOffSwitch(lightIsOff: Boolean) {
+fun OnOffSwitch(id:String, lightIsOff: Boolean, onclickHandler:(String)->Unit) {
     Button(
-        { /*TODO*/ })
+        { onclickHandler(id) })
     {
-        Text(if (lightIsOff) "Aus" else "Ein")
+        Text(if (lightIsOff) "off" else "on")
     }
 }
 

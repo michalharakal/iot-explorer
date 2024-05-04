@@ -13,7 +13,9 @@ fun HomeView(viewModel: HomeViewModel) {
 
     LazyColumn {
         items(roomsState.rooms.size) { roomIndex ->
-            Room(roomsState.rooms[roomIndex])
+            Room(roomsState.rooms[roomIndex]) {id ->
+                viewModel.handleButtonClick(id)
+            }
         }
     }
 }

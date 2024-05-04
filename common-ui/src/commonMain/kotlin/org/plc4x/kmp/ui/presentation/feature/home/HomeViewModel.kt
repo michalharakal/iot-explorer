@@ -7,20 +7,28 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 import org.plc4x.kmp.connector.home.HomeConnector
 import org.plc4x.kmp.connector.home.domain.HomeModel
+import org.plc4x.kmp.domain.repository.DeviceRepository
 import org.plc4x.kmp.ui.presentation.CommonViewModel
 import org.plc4x.kmp.ui.presentation.model.*
 
 
 class HomeViewModel : CommonViewModel(), KoinComponent {
 
-    private val homeConnector = get<HomeConnector>()
+    private val repository = get<DeviceRepository>()
 
     private val _state = MutableStateFlow(House(emptyList()))
     val state: StateFlow<House>
         get() = _state
 
+    init {
+        clientScope.coroutineContext
+        {
+        }
+    }
 
-    /*
+
+
+        /*
     Molecule
     val state: StateFlow<House> = clientScope.launchMolecule(RecompositionClock.Immediate) {
         mapToViewData(HomePresenter(homeConnector.modelState()))
@@ -55,4 +63,10 @@ class HomeViewModel : CommonViewModel(), KoinComponent {
     )
 
     private fun temperatureFormatter(temperature: Float): String = "${temperature}°C"
+    fun handleButtonClick(id: String) {
+        when  (id) {
+"light 1" -> homeConnector.lightOn(id)
+            else-> { print(id)}
+        }
+    }
 }
